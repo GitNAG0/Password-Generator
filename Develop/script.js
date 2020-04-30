@@ -23,27 +23,27 @@ function generate( ) {
     return
   }
 
-  if (lowercase) {
-    passHolder += lowerChar;
+  if (charLowerConf) {
+    inProgressPassword += lowercase;
   }
 
-  if (uppercase) {
-    passHolder += upperChar;
+  if (charUpperConf) {
+    inProgressPassword += uppercase;
   }
 
-  if (numbers) {
-    passHolder += numberChar;
+  if (charNumConf) {
+    inProgressPassword += numbers;
   }
 
-  if (special) {
-    passHolder += specialChar;
+  if (charSpecConf) {
+    inProgressPassword += special;
   }
-
-  for (let i = 0; 1 < passLength; i++) {
-    let randomIndex = Math.floor(Math.random( ) * passHolder.length)
-    newPass += passHolder[randomIndex]
+    console.log(inProgressPassword)
+  for (let i = 0; i < passwordLength; i++) {
+    let randomIndex = Math.floor(Math.random( ) * inProgressPassword.length)
+    newPassword += inProgressPassword[randomIndex]
   }
-  return newPass
+  return newPassword
 }
 
 function writePassword( ) {
@@ -54,6 +54,4 @@ function writePassword( ) {
 
 }
 
-generateBtn.addEventListener("click", writePassword);
-
-}
+document.getElementById('button').addEventListener("click", writePassword);
